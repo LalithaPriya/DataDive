@@ -1,0 +1,288 @@
+const gptPrompt = `You will be asked a prompt to select a list of classes, CORRUPTION/AUGMENTATION types and CORRUPTION/AUGMENTATION levels. You will have to use the below provided data below to return three lists classList, AugmentationList, CorruptionLevelList, based on the asked prompt. 
+
+
+
+CLASS DATA:
+"abacus" => 1
+"academic gown, academic robe, judge's robe" => 2
+"acorn" => 3
+"African elephant, Loxodonta africana" => 4
+"albatross, mollymawk" => 5
+"alp" => 6
+"altar" => 7
+"American alligator, Alligator mississipiensis" => 8
+"American lobster, Northern lobster, Maine lobster, Homarus americanus" => 9
+"apron" => 10
+"Arabian camel, dromedary, Camelus dromedarius" => 11
+"baboon" => 12
+"backpack, back pack, knapsack, packsack, rucksack, haversack" => 13
+"banana" => 14
+"bannister, banister, balustrade, balusters, handrail" => 15
+"barbershop" => 16
+"barn" => 17
+"barrel, cask" => 18
+"basketball" => 19
+"bathtub, bathing tub, bath, tub" => 20
+"beach wagon, station wagon, wagon, estate car, beach waggon, station waggon, waggon" => 21
+"beacon, lighthouse, beacon light, pharos" => 22
+"beaker" => 23
+"bee" => 24
+"beer bottle" => 25
+"bell pepper" => 26
+"bighorn, bighorn sheep, cimarron, Rocky Mountain bighorn, Rocky Mountain sheep, Ovis canadensis" => 27
+"bikini, two-piece" => 28
+"binoculars, field glasses, opera glasses" => 29
+"birdhouse" => 30
+"bison" => 31
+"black stork, Ciconia nigra" => 32
+"black widow, Latrodectus mactans" => 33
+"boa constrictor, Constrictor constrictor" => 34
+"bow tie, bow-tie, bowtie" => 35
+"brain coral" => 36
+"brass, memorial tablet, plaque" => 37
+"broom" => 38
+"brown bear, bruin, Ursus arctos" => 39
+"bucket, pail" => 40
+"bullet train, bullet" => 41
+"bullfrog, Rana catesbeiana" => 42
+"butcher shop, meat market" => 43
+"candle, taper, wax light" => 44
+"cannon" => 45
+"cardigan" => 46
+"cash machine, cash dispenser, automated teller machine, automatic teller machine, automated teller, automatic teller, ATM" => 47
+"cauliflower" => 48
+"CD player" => 49
+"centipede" => 50
+"chain" => 51
+"chest" => 52
+"Chihuahua" => 53
+"chimpanzee, chimp, Pan troglodytes" => 54
+"Christmas stocking" => 55
+"cliff dwelling" => 56
+"cliff, drop, drop-off" => 57
+"cockroach, roach" => 58
+"comic book" => 59
+"computer keyboard, keypad" => 60
+"confectionery, confectionary, candy store" => 61
+"convertible" => 62
+"coral reef" => 63
+"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor" => 64
+"crane" => 65
+"dam, dike, dyke" => 66
+"desk" => 67
+"dining table, board" => 68
+"dragonfly, darning needle, devil's darning needle, sewing needle, snake feeder, snake doctor, mosquito hawk, skeeter hawk" => 69
+"drumstick" => 70
+"dugong, Dugong dugon" => 71
+"dumbbell" => 72
+"Egyptian cat" => 73
+"espresso" => 74
+"European fire salamander, Salamandra salamandra" => 75
+"flagpole, flagstaff" => 76
+"fly" => 77
+"fountain" => 78
+"freight car" => 79
+"frying pan, frypan, skillet" => 80
+"fur coat" => 81
+"gasmask, respirator, gas helmet" => 82
+"gazelle" => 83
+"German shepherd, German shepherd dog, German police dog, alsatian" => 84
+"go-kart" => 85
+"golden retriever" => 86
+"goldfish, Carassius auratus" => 87
+"gondola" => 88
+"goose" => 89
+"grasshopper, hopper" => 90
+"guacamole" => 91
+"guinea pig, Cavia cobaya" => 92
+"hog, pig, grunter, squealer, Sus scrofa" => 93
+"hourglass" => 94
+"ice cream, icecream" => 95
+"ice lolly, lolly, lollipop, popsicle" => 96
+"iPod" => 97
+"jellyfish" => 98
+"jinrikisha, ricksha, rickshaw" => 99
+"kimono" => 100
+"king penguin, Aptenodytes patagonica" => 101
+"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus" => 102
+"Labrador retriever" => 103
+"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle" => 104
+"lakeside, lakeshore" => 105
+"lampshade, lamp shade" => 106
+"lawn mower, mower" => 107
+"lemon" => 108
+"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens" => 109
+"lifeboat" => 110
+"limousine, limo" => 111
+"lion, king of beasts, Panthera leo" => 112
+"magnetic compass" => 113
+"mantis, mantid" => 114
+"mashed potato" => 115
+"maypole" => 116
+"meat loaf, meatloaf" => 117
+"military uniform" => 118
+"miniskirt, mini" => 119
+"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus" => 120
+"moving van" => 121
+"mushroom" => 122
+"nail" => 123
+"neck brace" => 124
+"obelisk" => 125
+"oboe, hautboy, hautbois" => 126
+"orange" => 127
+"orangutan, orang, orangutang, Pongo pygmaeus" => 128
+"organ, pipe organ" => 129
+"ox" => 130
+"parking meter" => 131
+"pay-phone, pay-station" => 132
+"Persian cat" => 133
+"picket fence, paling" => 134
+"pill bottle" => 135
+"pizza, pizza pie" => 136
+"plate" => 137
+"plunger, plumber's helper" => 138
+"pole" => 139
+"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria" => 140
+"pomegranate" => 141
+"poncho" => 142
+"pop bottle, soda bottle" => 143
+"potpie" => 144
+"potter's wheel" => 145
+"pretzel" => 146
+"projectile, missile" => 147
+"punching bag, punch bag, punching ball, punchball" => 148
+"reel" => 149
+"refrigerator, icebox" => 150
+"remote control, remote" => 151
+"rocking chair, rocker" => 152
+"rugby ball" => 153
+"sandal" => 154
+"school bus" => 155
+"scoreboard" => 156
+"scorpion" => 157
+"sea cucumber, holothurian" => 158
+"sea slug, nudibranch" => 159
+"seashore, coast, seacoast, sea-coast" => 160
+"sewing machine" => 161
+"slug" => 162
+"snail" => 163
+"snorkel" => 164
+"sock" => 165
+"sombrero" => 166
+"space heater" => 167
+"spider web, spider's web" => 168
+"spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish" => 169
+"sports car, sport car" => 170
+"standard poodle" => 171
+"steel arch bridge" => 172
+"stopwatch, stop watch" => 173
+"sulphur butterfly, sulfur butterfly" => 174
+"sunglasses, dark glasses, shades" => 175
+"suspension bridge" => 176
+"swimming trunks, bathing trunks" => 177
+"syringe" => 178
+"tabby, tabby cat" => 179
+"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui" => 180
+"tarantula" => 181
+"teapot" => 182
+"teddy, teddy bear" => 183
+"thatch, thatched roof" => 184
+"torch" => 185
+"tractor" => 186
+"trilobite" => 187
+"triumphal arch" => 188
+"trolleybus, trolley coach, trackless trolley" => 189
+"turnstile" => 190
+"umbrella" => 191
+"vestment" => 192
+"viaduct" => 193
+"volleyball" => 194
+"walking stick, walkingstick, stick insect" => 195
+"water jug" => 196
+"water tower" => 197
+"wok" => 198
+"wooden spoon" => 199
+"Yorkshire terrier" => 200
+
+CORRUPTION/AUGMENTATION DATA:
+original => 0, N/A
+
+gaussian_noise => 1, NOISE
+speckle_noise => 2, NOISE
+
+gaussian_blur => 3, BLUR
+defocus_blur => 4, BLUR
+
+brightness => 5, WEATHER
+
+pixelate => 6, DIGITAL
+contrast => 7, DIGITAL
+jpeg_compression => 8, DIGITAL
+
+CORRUPTION/AUGMENTATION LEVELS:
+1 => 1
+2 => 2
+3 => 3
+4 => 4
+5 => 5
+
+
+To understand the above data:
+every line in the class data is in form of: (natural language description of what is in the class) => (class label number)
+For example: "trolleybus, trolley coach, trackless trolley" => 189
+means any image that has the class label 189 can have images of trolleybus or trolley coach or trackless trolley.
+
+every line in the CORRUPTION/AUGMENTATION data is in form of: (augmentation/corrupotion technique) => (augmentation/corrupotion id), (what kind of augmentation it is classified as)
+For example: pixelate => 6, DIGITAL 
+means pixelate is a DIGITAL augmentation with id 6
+
+CORRUPTION/AUGMENTATION LEVELS:
+This is staright forward. There are 5 levels of augmentation, each is number.
+
+Some example prompts and expected json responses from you are as follows (REMEMBER that all 3 lists are multiplied with each other to form a list of triplets that will eventually become the pormpts answer. But all you need to focus on is the 3 lists):
+PROMPT: "all images with contrast augmentation only" 
+RESPONSE: "
+{
+	"classList": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200],
+	"AugmentationList": [7],
+	"CorruptionLevelList": [1,2,3,4,5]
+}
+"
+EXPLANATION: AugmentationList now only has 7 
+
+
+PROMPT: " all animal images with DIGITAL augmentations with level corruption level 4" 
+RESPONSE: "
+{
+	"classList": [3,4,5,8,27,32,33,34,42,53,54,64,69,71,84,86,87,101,102,103,112,114,120,128,134,142,171,180,181,183,200],
+	"AugmentationList": [6,7,8],
+	"CorruptionLevelList": [4]
+}
+"
+EXPLANATION: above returned classList labels correspond to animals ("acorn" ,"African elephant, Loxodonta africana" ,"albatross, mollymawk" ,"American alligator, Alligator mississipiensis" ,"bighorn, bighorn sheep, cimarron, Rocky Mountain bighorn, Rocky Mountain sheep, Ovis canadensis" ,"black stork, Ciconia nigra" ,"black widow, Latrodectus mactans" ,"boa constrictor, Constrictor constrictor" ,"bullfrog, Rana catesbeiana" ,"Chihuahua" ,"chimpanzee, chimp, Pan troglodytes" ,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor" ,"dragonfly, darning needle, devil's darning needle, sewing needle, snake feeder, snake doctor, mosquito hawk, skeeter hawk" ,"dugong, Dugong dugon" ,"German shepherd, German shepherd dog, German police dog, alsatian" ,"golden retriever" ,"goldfish, Carassius auratus" ,"king penguin, Aptenodytes patagonica" ,"koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus" ,"Labrador retriever" ,"lion, king of beasts, Panthera leo" ,"mantis, mantid" ,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus" ,"orangutan, orang, orangutang, Pongo pygmaeus" ,"picket fence, paling" ,"poncho" ,"standard poodle" ,"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui" ,"tarantula" ,"teddy, teddy bear" ,"Yorkshire terrier"), AugmentationList is 6,7,8 because we want pixelate, contrast & jpeg_compressions which are digital augmentations. CorruptionLevelList is 4 because it is asked.
+
+
+PROMPT: "all ball images with only augmentations" 
+RESPONSE: "
+{
+	"classList": [19,148,153,194],
+	"AugmentationList": [1,2,3,4,5,6,7,8],
+	"CorruptionLevelList": [1,2,3,4,5]
+}
+"
+EXPLANATION: 19,148,153,194 all these class labels correspond to balls, and since prompt is asking augmentations only, original => 0 is removed. Since it does not ask about levels, all are included.
+
+
+
+
+SOME RULES:
+1. If the prompt does not ask about any of the class or augmentation or corruption level, you can assume that all possible values corresponding to the ignored entity are asked. For example a prompt asking only about a augmentation type must return all 200 values in classList and all 5 values in CorruptionLevelList
+2. now your response must now include only the json that can be directly parsed by js code
+3. your response is read by a computer code, so you should be carefult with what your response contain. MAKE SURE it is a json parsable response. 
+4. lists in the response can only be integer arrays 
+5. you dont need to put \`\`\`json RESPONSE\`\`\`. just give response in pain text
+
+
+NOW RESPOND TO THIS PROMPT:
+`;
+export default gptPrompt;

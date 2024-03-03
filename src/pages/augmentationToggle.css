@@ -1,0 +1,47 @@
+/** datadive.css **/
+
+.augmentation-wrapper {
+    display: flex;
+  }
+  
+  .augmentation-btn {
+    border: 1px solid #000;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .augmentation-btn.active {
+    background-color: #f0f0f0;
+  }
+
+  
+.search-button, .modal-button {
+  width: 150px;
+  height: 36px;
+  border: 1px solid #00b4cc;
+  background: #fff;
+  text-align: center;
+  color: #00b4cc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.search-button:hover, .modal-button:hover {
+  background: #0099b9;
+  color: #fff;
+}
+
+.search-button:focus, .modal-button:focus {
+  outline: none;
+}
+
+.mt15{
+  margin-top : 15px
+}
+
+.minWidth{
+  min-width: 11em;
+}
