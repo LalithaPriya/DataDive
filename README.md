@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+## Inspiration
+"I work as a full time PhD student on Comp. Vison and ML techniques. Customization of data is real a big pain through out our research. By taking up SRC's dataset management task I got myself time/motivation/resources to explore the data customization. Further ImageNet has been a frequently modified dataset in our lab. Getting hands on over customizing it while having potential chances to win goodies is a main inspiration for me" 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+"Further participating in this hackathon is fun way to spend time with my sibling"
 
-## Available Scripts
+## What it does
 
-In the project directory, you can run:
 
-### `npm start`
+We have built a very powerful dataset customization tool. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Levels of granularity
+It is powerful because our tool lets user customize a dataset at multiple (Three) granularities. In our case we focus on Image classification dataset (Tiny-ImageNet-C)
+1. Coarse Level Customization: Not every time an ML engineer would be picky about what image to pick for training and  what to pick for testing, so at this coarser granularity our engineer can shortlist "classes", "augmentations", "augmentation severities" with a single loosely formed language prompt. Our tool uses OpenAI's GPT-3.5 to understand the prompt and propose a subset of the dataset.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Medium granularity customization: At this level, user has the control over each "class" and other metadata attributes. This can be used to fix any mistakes made in the coarser level, or to make very selective customizations. Control at this level helps all the needs required to publish the paper "Efficiently Modeling Long Sequences with Structured State Spaces" <https://arxiv.org/pdf/2111.00396.pdf>
 
-### `npm test`
+3. Fine customizations: This is a granularity typically annotators/labelers deal at. But for an ML engineer this could be handy when there are certain points in the dataset causing issues in the DataLoader or if ML engineer has to create a mini dataset for fine-tuning.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Data relation modeling
+Our tool also lets ML engineer  play with the data and feel it. Particularly our screen 1's "Image Viewer" and screen 2's "Relationship Explorer" lets user explore all relations in the dataset including the metadata. Just by clicking on buttons, the user will hypothetically be able to crawl through the entire dataset. 
 
-### `npm run build`
+### Robustness to missing labels
+Our tool, despite being made of simple and intuitive logic, can deal with missing data. This is very important because "missing segments" are very common on large databases due to many different reasons and this is one of the issues ML engineers stumble upon and waste their precious time.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Overall, DataDiver is a web application designed to organize, query, and visualize machine learning datasets. It allows users to customize their dataset through a series of steps, including searching, browsing, and extracting data based on specific criteria. The tool aims to provide a user-friendly interface for managing complex datasets, particularly for deep learning applications."
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How we built it
+"We built it using React and Python"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Challenges we ran into
+"One of the main challenges we faced was designing an intuitive user interface that would allow users to easily navigate and interact with their dataset. This part took 1 full day before we finalized on what screens, what APIs got to be there. Rest of the implementation is not that easy as well, with atleast 10 diverse react components having to be created for this."
 
-### `npm run eject`
+## Accomplishments that we're proud of
+'Our tool lets user play with data at multiple granularities. The coarse level is a strong application of large language models, letting user perform operations at high level without having to spend a lot of time.  '
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## What we learned
+'Data customization is a hard problem, but we can atleast attempt to solve it XD'
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## What's next for DataDiver
+'Build a production website that can deal with many variants of Image Net datasets '
