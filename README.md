@@ -1,10 +1,5 @@
-## Inspiration
-"I work as a full time PhD student on Comp. Vison and ML techniques. Customization of data is real a big pain through out our research. By taking up SRC's dataset management task I got myself time/motivation/resources to explore the data customization. Further ImageNet has been a frequently modified dataset in our lab. Getting hands on over customizing it while having potential chances to win goodies is a main inspiration for me" 
-
-"Further participating in this hackathon is fun way to spend time with my sibling"
 
 ## What it does
-
 
 We have built a very powerful dataset customization tool. 
 
