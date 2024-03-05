@@ -1,7 +1,11 @@
+# DataDive
+
+Hey there! Imagine having a tool that lets you customize large datasets to fit your exact needs as an engineer. As data gets bigger and specifications get more detailed, this tool is your go-to solution. It helps you tailor datasets to match your requirements perfectly. It's like having a personal data customization wizard at your fingertips! Get ready to take control like never before with **DataDive**.
 
 ## What it does
 
 We have built a very powerful dataset customization tool. 
+
 
 ### Levels of granularity
 It is powerful because our tool lets user customize a dataset at multiple (Three) granularities. In our case we focus on Image classification dataset (Tiny-ImageNet-C)
@@ -20,16 +24,16 @@ Our tool, despite being made of simple and intuitive logic, can deal with missin
 Overall, DataDiver is a web application designed to organize, query, and visualize machine learning datasets. It allows users to customize their dataset through a series of steps, including searching, browsing, and extracting data based on specific criteria. The tool aims to provide a user-friendly interface for managing complex datasets, particularly for deep learning applications."
 
 ## How we built it
-"We built it using React and Python"
+We built it using React and Python.
 
 ## Challenges we ran into
-"One of the main challenges we faced was designing an intuitive user interface that would allow users to easily navigate and interact with their dataset. This part took 1 full day before we finalized on what screens, what APIs got to be there. Rest of the implementation is not that easy as well, with atleast 10 diverse react components having to be created for this."
+Designing an intuitive user interface that simplifies dataset interaction was a major challenge, especially within the time constraints of the hackathon. It took a full day of brainstorming and prototyping before finalizing the screens and APIs.
 
 ## Accomplishments that we're proud of
-'Our tool lets user play with data at multiple granularities. The coarse level is a strong application of large language models, letting user perform operations at high level without having to spend a lot of time.  '
+Our tool lets user play with data at multiple granularities. The coarse level is a strong application of large language models, letting user perform operations at high level without having to spend a lot of time. 
 
 ## What we learned
-'Data customization is a hard problem, but we can atleast attempt to solve it XD'
+Data customization is a hard problem, but we can atleast attempt to solve it XD.
 
 ## What's next for DataDiver
-'Build a production website that can deal with many variants of Image Net datasets '
+Build a production website that can deal with many variants of Image Net datasets.
