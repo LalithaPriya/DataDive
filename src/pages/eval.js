@@ -9,7 +9,7 @@ function Eval(handleFilter) {
   const [classNames, setClassNames] = useState([]);
   const [filterContent, setFilterContent] = useState(''); // New state for handling the input box value
 
-  const openai = new OpenAI({ apiKey: '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', dangerouslyAllowBrowser: true  });
+  const openai = new OpenAI({ apiKey: 'PROVIDE API KEY', dangerouslyAllowBrowser: true  });
 
   function parseAndFilter(jsonString) {
       try {
